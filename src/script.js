@@ -32,7 +32,7 @@ let recipes = [
         "imageSrc": "https://source.unsplash.com/random?veggies",
         "time": "30 min",
         "type": "veg",
-        "isLiked": false,
+        "isLiked": true,
         "rating": 4.2
     },
     {
@@ -48,7 +48,7 @@ let recipes = [
         "imageSrc": "https://source.unsplash.com/random?pizza",
         "time": "40 min",
         "type": "veg",
-        "isLiked": false,
+        "isLiked": true,
         "rating": 4.1
     },
     {
@@ -64,7 +64,7 @@ let recipes = [
         "imageSrc": "https://source.unsplash.com/random?salmon",
         "time": "50 min",
         "type": "non-veg",
-        "isLiked": false,
+        "isLiked": true,
         "rating": 4.6
     },
     {
@@ -164,10 +164,43 @@ let card = `
 <div class="card__info-last">
   <h3>40 min</h3>
   <div class="share__container">
-    <img src="./assets/like.svg" alt="like" />
+    <img src="./assets/like.svg" class="like_img" alt="like" />
     <img src="./assets/comments.svg" alt="like" />
   </div>
 </div>`
+
+// function for default cards
+
+function defaultCards () {
+    recipes.forEach( (e) => {
+        let cardElement = document.createElement("div");
+        cardElement.classList = "card"
+        cardElement.innerHTML = `
+        <img src="${e.imageSrc}" alt="recipe 1" />
+        <div id="recipi__tag">${e.type}</div>
+        <div class="card__info-first">
+          <h3>${e.name}</h3>
+          <div class="star_rating">
+            <img src="./assets/Frame 28.png" alt="star Icon" />
+            <p>${e.rating}</p>
+          </div>
+        </div>
+        <div class="card__info-last">
+          <h3>${e.time} min</h3>
+          <div class="share__container">
+            <img src="./assets/like.svg" class="like_img" alt="like" />
+            <img src="./assets/comments.svg" alt="like" />
+          </div>
+        </div>`;
+        
+        let likeImg = cardElement.querySelector(".like_img"); 
+        if (e.isLiked === true) {
+        likeImg.src = "../assets/like (1).svg";
+        }
+        cardDiv.appendChild(cardElement);  
+    })
+}
+
 
 let cardDiv = document.querySelector(".recipe__recipe-grid");
 
@@ -178,56 +211,14 @@ let thirdFilterBtn = document.querySelector(".hero__third");
 // calling all the recipes on load
 
 window.addEventListener('load', (event) => {
-    recipes.forEach( (e) => {
-        let cardElement = document.createElement("div");
-        cardElement.classList = "card"
-        cardElement.innerHTML = `
-        <img src="${e.imageSrc}" alt="recipe 1" />
-        <div id="recipi__tag">${e.type}</div>
-        <div class="card__info-first">
-          <h3>${e.name}</h3>
-          <div class="star_rating">
-            <img src="./assets/Frame 28.png" alt="star Icon" />
-            <p>${e.rating}</p>
-          </div>
-        </div>
-        <div class="card__info-last">
-          <h3>${e.time} min</h3>
-          <div class="share__container">
-            <img src="./assets/like.svg" alt="like" />
-            <img src="./assets/comments.svg" alt="like" />
-          </div>
-        </div>`;
-        cardDiv.appendChild(cardElement);  
-    })
+    defaultCards();
 });
 
 // Js for styling all recipes button
 firstFilterBtn.addEventListener("click", () => {
     // Removing the other cards first
     cardDiv.innerHTML = "";
-    recipes.forEach( (e) => {
-        let cardElement = document.createElement("div");
-        cardElement.classList = "card"
-        cardElement.innerHTML = `
-        <img src="${e.imageSrc}" alt="recipe 1" />
-        <div id="recipi__tag">${e.type}</div>
-        <div class="card__info-first">
-          <h3>${e.name}</h3>
-          <div class="star_rating">
-            <img src="./assets/Frame 28.png" alt="star Icon" />
-            <p>${e.rating}</p>
-          </div>
-        </div>
-        <div class="card__info-last">
-          <h3>${e.time} min</h3>
-          <div class="share__container">
-            <img src="./assets/like.svg" alt="like" />
-            <img src="./assets/comments.svg" alt="like" />
-          </div>
-        </div>`;
-        cardDiv.appendChild(cardElement);  
-    })
+   defaultCards();
 })
 
 // Js for styling all veg recipes button
@@ -258,10 +249,16 @@ secondFilterBtn.addEventListener("click", () => {
         <div class="card__info-last">
           <h3>${e.time} min</h3>
           <div class="share__container">
-            <img src="./assets/like.svg" alt="like" />
+            <img src="./assets/like.svg" class="like_img" alt="like" />
             <img src="./assets/comments.svg" alt="like" />
           </div>
         </div>`;
+
+        let likeImg = cardElement.querySelector(".like_img"); 
+        if (e.isLiked === true) {
+        likeImg.src = "../assets/like (1).svg";
+        }
+
         cardDiv.appendChild(cardElement);  
     })
 })
@@ -295,10 +292,16 @@ thirdFilterBtn.addEventListener("click", () => {
         <div class="card__info-last">
           <h3>${e.time} min</h3>
           <div class="share__container">
-            <img src="./assets/like.svg" alt="like" />
+            <img src="./assets/like.svg" class="like_img" alt="like" />
             <img src="./assets/comments.svg" alt="like" />
           </div>
         </div>`;
+
+        let likeImg = cardElement.querySelector(".like_img"); 
+        if (e.isLiked === true) {
+        likeImg.src = "../assets/like (1).svg";
+        }
+
         cardDiv.appendChild(cardElement);  
     })
 })
@@ -310,19 +313,18 @@ thirdFilterBtn.addEventListener("click", () => {
 
 
 let fourAbove = document.querySelector("#four_above");
-let fourBelow = document.querySelector("#four_below");
 
 fourAbove.addEventListener("change", function () {
-        // Removing the other cards first
-        cardDiv.innerHTML = "";
-
+    // Removing the other cards first
+    cardDiv.innerHTML = "";
+    
     if(this.checked){
         let aboveFourRating = recipes.filter((e) => {
             if (e.rating >= 4) {
                 return e;
             }
         })
-
+        
         aboveFourRating.forEach( (e) => {
             let cardElement = document.createElement("div");
             cardElement.classList = "card"
@@ -330,58 +332,47 @@ fourAbove.addEventListener("change", function () {
             <img src="${e.imageSrc}" alt="recipe 1" />
             <div id="recipi__tag">${e.type}</div>
             <div class="card__info-first">
-              <h3>${e.name}</h3>
-              <div class="star_rating">
-                <img src="./assets/Frame 28.png" alt="star Icon" />
-                <p>${e.rating}</p>
-              </div>
+            <h3>${e.name}</h3>
+            <div class="star_rating">
+            <img src="./assets/Frame 28.png" alt="star Icon" />
+            <p>${e.rating}</p>
+            </div>
             </div>
             <div class="card__info-last">
-              <h3>${e.time} min</h3>
-              <div class="share__container">
-                <img src="./assets/like.svg" alt="like" />
-                <img src="./assets/comments.svg" alt="like" />
-              </div>
+            <h3>${e.time} min</h3>
+            <div class="share__container">
+            <img src="./assets/like.svg" a class="like_img"lt="like" />
+            <img src="./assets/comments.svg" alt="like" />
+            </div>
             </div>`;
+
+            let likeImg = cardElement.querySelector(".like_img"); 
+            if (e.isLiked === true) {
+            likeImg.src = "../assets/like (1).svg";
+            }
             cardDiv.appendChild(cardElement);  
         })
     } else {
-        recipes.forEach( (e) => {
-            let cardElement = document.createElement("div");
-            cardElement.classList = "card"
-            cardElement.innerHTML = `
-            <img src="${e.imageSrc}" alt="recipe 1" />
-            <div id="recipi__tag">${e.type}</div>
-            <div class="card__info-first">
-              <h3>${e.name}</h3>
-              <div class="star_rating">
-                <img src="./assets/Frame 28.png" alt="star Icon" />
-                <p>${e.rating}</p>
-              </div>
-            </div>
-            <div class="card__info-last">
-              <h3>${e.time} min</h3>
-              <div class="share__container">
-                <img src="./assets/like.svg" alt="like" />
-                <img src="./assets/comments.svg" alt="like" />
-              </div>
-            </div>`;
-            cardDiv.appendChild(cardElement);  
-        })
+        defaultCards();
     }
 })
+
+let fourBelow = document.querySelector("#four_below");
+
 
 fourBelow.addEventListener("change", function () {
     // Removing the other cards first
 
 if(this.checked){
-    let aboveFourRating = recipes.filter((e) => {
+    cardDiv.innerHTML = "";
+    let belowFourRating = recipes.filter((e) => {
         if (e.rating < 4) {
             return e;
         }
     })
+    console.log(belowFourRating);
 
-    aboveFourRating.forEach( (e) => {
+    belowFourRating.forEach( (e) => {
         let cardElement = document.createElement("div");
         cardElement.classList = "card"
         cardElement.innerHTML = `
@@ -397,34 +388,24 @@ if(this.checked){
         <div class="card__info-last">
           <h3>${e.time} min</h3>
           <div class="share__container">
-            <img src="./assets/like.svg" alt="like" />
+            <img src="./assets/like.svg" class="like_img" alt="like" />
             <img src="./assets/comments.svg" alt="like" />
           </div>
         </div>`;
+
+        let likeImg = cardElement.querySelector(".like_img"); 
+        if (e.isLiked === true) {
+        likeImg.src = "../assets/like (1).svg";
+        }
+
         cardDiv.appendChild(cardElement);  
     })
 } else {
-    recipes.forEach( (e) => {
-        let cardElement = document.createElement("div");
-        cardElement.classList = "card"
-        cardElement.innerHTML = `
-        <img src="${e.imageSrc}" alt="recipe 1" />
-        <div id="recipi__tag">${e.type}</div>
-        <div class="card__info-first">
-          <h3>${e.name}</h3>
-          <div class="star_rating">
-            <img src="./assets/Frame 28.png" alt="star Icon" />
-            <p>${e.rating}</p>
-          </div>
-        </div>
-        <div class="card__info-last">
-          <h3>${e.time} min</h3>
-          <div class="share__container">
-            <img src="./assets/like.svg" alt="like" />
-            <img src="./assets/comments.svg" alt="like" />
-          </div>
-        </div>`;
-        cardDiv.appendChild(cardElement);  
-    })
+    defaultCards();
 }
 })
+
+
+// -----------------------Checkbox Filtering for Rating in js ended --------------
+
+
