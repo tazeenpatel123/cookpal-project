@@ -68,11 +68,17 @@
             <h2>Search for Recipes</h2>
           </div>
           <div class="hero__search-div">
-            <input type="search" placeholder="Search for Recipes" />
+            <input
+              type="search"
+              placeholder="Search for Recipes"
+              id="search_input"
+              onkeyup="displaySearch()"
+            />
             <img
               src="./assets/li_search.svg"
               alt="search"
               class="hero__search-btn"
+              onclick="displaySearch()"
             />
           </div>
         </div>
@@ -101,8 +107,9 @@
             <input type="checkbox" name="fourBelow" id="four_below" /> 4 Below
           </div>
         </div>
-        <div class="recipe__grid"></div>
-        <div class="recipe__recipe-grid"></div>
+        <div class="recipe__grid">
+          <div class="recipe__recipe-grid"></div>
+        </div>
       </div>
     </main>
     <footer class="footer">

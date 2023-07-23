@@ -22,6 +22,7 @@ menuBtn.addEventListener("click", () => {
 
 
 
+
 // -----------------------All Veg Non Veg Filtering js start --------------
 
 
@@ -150,6 +151,62 @@ let recipes = [
         "rating": 4.9
     }
 ]
+
+
+// ------------- For Search --------
+
+function displaySearch(){
+    let searchTerm = document.querySelector("#search_input").value;
+    
+    // Removing the other cards first
+    cardDiv.innerHTML = "";
+
+   let searchElementsList = recipes.filter((e) => {
+        if (e.name.toUpperCase().indexOf(searchTerm.toUpperCase()) > -1) {
+            return e;
+        } 
+    })
+
+    console.log(searchElementsList);
+
+    if (searchElementsList.length == 0) {
+
+        cardDiv.innerHTML = `<h1>Please, Check your recipe name..</h1>`  
+    } else {
+        searchElementsList.forEach( (e) => {
+            let cardElement = document.createElement("div");
+            cardElement.classList = "card"
+            cardElement.innerHTML = `
+            <img src="${e.imageSrc}" alt="recipe 1" />
+            <div id="recipi__tag">${e.type}</div>
+            <div class="card__info-first">
+              <h3>${e.name}</h3>
+              <div class="star_rating">
+                <img src="./assets/Frame 28.png" alt="star Icon" />
+                <p>${e.rating}</p>
+              </div>
+            </div>
+            <div class="card__info-last">
+              <h3>${e.time} min</h3>
+              <div class="share__container">
+                <img src="./assets/like.svg" class="like_img" alt="like" />
+                <img src="./assets/comments.svg" alt="like" />
+              </div>
+            </div>`;
+    
+            let likeImg = cardElement.querySelector(".like_img"); 
+            if (e.isLiked === true) {
+            likeImg.src = "../assets/like (1).svg";
+            }
+    
+            cardDiv.appendChild(cardElement);  
+        })
+    }
+    
+}
+
+
+// ------------- For Search Ended --------
 
 // Adding cards
 
@@ -355,6 +412,7 @@ fourAbove.addEventListener("change", function () {
             cardDiv.appendChild(cardElement);  
         })
     } else {
+        cardDiv.innerHTML = "";
         defaultCards();
     }
 })
@@ -403,6 +461,7 @@ if(this.checked){
         cardDiv.appendChild(cardElement);  
     })
 } else {
+    cardDiv.innerHTML = "";
     defaultCards();
 }
 })
