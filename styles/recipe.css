@@ -40,7 +40,13 @@
 }
 
 .card img {
-  width: fit-content;
+  display: flex;
+  width: 289px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 16px;
 }
 
 #recipi__tag {
@@ -82,9 +88,7 @@
 
 .share__container {
   display: flex;
-  align-items: center;
   gap: 10px;
-  padding-bottom: 20px;
 }
 
 .star_rating {
@@ -99,13 +103,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 20px;
 }
 
 .star_rating {
   display: flex;
   align-items: center;
   gap: 3px;
+}
+
+.star_rating img {
+  width: 16px;
+  height: 16px;
+}
+
+.share__container img {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
 }
 
 /* xs */
@@ -127,6 +142,12 @@
   }
   .recipe {
     margin-inline: 8vw;
+  }
+  .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
   }
 }
 
