@@ -24,6 +24,8 @@ menuBtn.addEventListener("click", () => {
 
 // -----------------------All Veg Non Veg Filtering js start --------------
 
+
+
 // Jason info
 
 let recipes = [
