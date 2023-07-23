@@ -127,18 +127,34 @@
 } */
 
 /* md */
-/* @media (max-width: 768px){ 
-  
- } */
+@media (max-width: 768px) {
+  .hero__text h3 {
+    font-size: 3vw;
+  }
+
+  .hero__text h2 {
+    font-size: 4vw;
+  }
+
+  .hero__text p {
+    font-size: 2vw;
+  }
+}
 
 /* lg */
 @media (max-width: 1024px) {
   .hero__search {
-    margin-inline: 4vw;
+    margin-inline: 8vw;
   }
 
   .hero__img img {
-    width: 90vmax;
+    width: 80vw;
+    height: 50vh;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  .hero__recipe-type {
+    margin-left: 8vw;
   }
 }
 
