@@ -300,6 +300,7 @@ let thirdFilterBtn = document.querySelector(".hero__third");
 
 // calling all the recipes on load
 
+
 window.addEventListener('load', (event) => {
     defaultCards();
 });
