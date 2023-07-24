@@ -176,9 +176,5 @@
 }
 
 /* 2xL */
-@media (max-width: 1536px) {
-  .recipe__recipe-grid {
-    grid-template-columns: 1fr 1fr;
-    overflow-x: scroll;
-  }
-}
+/* @media (max-width: 1536px) {
+} */

@@ -152,6 +152,34 @@ let recipes = [
     }
 ]
 
+// ------------------ Removing Mobnav if someone clicked on the Nav link -------------------------
+
+
+let homeN = document.querySelector("#HomeNav");
+let exploreN = document.querySelector("#ExploreNav");
+let helpN = document.querySelector("#HelpNav");
+let mobNav = document.querySelector(".Mobile__nav");
+
+homeN.addEventListener("click", () => {
+    mobNav.style.display = "none";
+})
+
+exploreN.addEventListener("click", () => {
+    mobNav.style.display = "none";
+})
+
+
+helpN.addEventListener("click", () => {
+    mobNav.style.display = "none";
+})
+
+
+
+
+
+// ------------------ Removing Mobnav if someone clicked on the Nav link -------------------------
+
+
 
 // ------------- For Search --------
 
@@ -170,9 +198,12 @@ function displaySearch(){
     console.log(searchElementsList);
 
     if (searchElementsList.length == 0) {
-
+        // Removing the other cards first
+        cardDiv.innerHTML = "";
         cardDiv.innerHTML = `<h1>Please, Check your recipe name..</h1>`  
     } else {
+        // Removing the other cards first
+        cardDiv.innerHTML = "";
         searchElementsList.forEach( (e) => {
             let cardElement = document.createElement("div");
             cardElement.classList = "card"
