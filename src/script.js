@@ -33,7 +33,7 @@ let recipes = [
     {
         "name": "Russian Salad",
         "imageSrc": "assets/rounded (2).png",
-        "time": "40 min",
+        "time": "40",
         "type": "veg",
         "isLiked": true,
         "rating": 4.2
@@ -41,7 +41,7 @@ let recipes = [
     {
         "name": "Russian Salad",
         "imageSrc": "assets/rounded (2).png",
-        "time": "40 min",
+        "time": "40",
         "type": "non-veg",
         "isLiked": false,
         "rating": 4.5
@@ -49,7 +49,7 @@ let recipes = [
     {
         "name": "Russian Salad",
         "imageSrc": "assets/rounded (4).png",
-        "time": "40 min",
+        "time": "40",
         "type": "veg",
         "isLiked": true,
         "rating": 4.1
@@ -57,7 +57,7 @@ let recipes = [
     {
         "name":"Russian Salad",
         "imageSrc": "assets/rounded (4).png",
-        "time": "40 min",
+        "time": "40",
         "type": "non-veg",
         "isLiked": false,
         "rating": 4.7
@@ -65,7 +65,7 @@ let recipes = [
     {
         "name": "Russian Salad",
         "imageSrc": "assets/rounded (2).png",
-        "time": "40 min",
+        "time": "40",
         "type": "non-veg",
         "isLiked": true,
         "rating": 4.6
@@ -73,7 +73,7 @@ let recipes = [
     {
         "name": "Russian Salad",
         "imageSrc": "assets/rounded (2).png",
-        "time": "40 min",
+        "time": "40",
         "type": "veg",
         "isLiked": false,
         "rating": 4.0
@@ -81,7 +81,7 @@ let recipes = [
     {
         "name": "Russian Salad",
         "imageSrc": "assets/rounded (2).png",
-        "time": "40 min",
+        "time": "40",
         "type": "veg",
         "isLiked": false,
         "rating": 3.9
@@ -89,7 +89,7 @@ let recipes = [
     {
         "name": "Russian Salad",
         "imageSrc": "assets/rounded (3).png",
-        "time": "40 min",
+        "time": "40",
         "type": "non-veg",
         "isLiked": false,
         "rating": 4.3
@@ -97,7 +97,7 @@ let recipes = [
     {
         "name": "Russian Salad",
         "imageSrc": "assets/rounded (5).png",
-        "time": "40 min",
+        "time": "40",
         "type": "veg",
         "isLiked": false,
         "rating": 4.5
@@ -105,7 +105,7 @@ let recipes = [
     {
         "name": "Russian Salad",
         "imageSrc": "assets/rounded (4).png",
-        "time": "40 min",
+        "time": "40",
         "type": "non-veg",
         "isLiked": false,
         "rating": 4.2
@@ -113,7 +113,7 @@ let recipes = [
     {
         "name": "Russian Salad",
         "imageSrc": "assets/rounded (4).png",
-        "time": "40 min",
+        "time": "40",
         "type": "veg",
         "isLiked": false,
         "rating": 4.4
@@ -121,7 +121,7 @@ let recipes = [
     {
         "name": "Russian Salads",
         "imageSrc": "assets/rounded (4).png",
-        "time": "40 min",
+        "time": "40",
         "type": "non-veg",
         "isLiked": false,
         "rating": 4.6
@@ -129,7 +129,7 @@ let recipes = [
     {
         "name": "Russian Salad",
         "imageSrc": "assets/rounded (4).png",
-        "time": "40 min",
+        "time": "40",
         "type": "veg",
         "isLiked": false,
         "rating": 3.8
@@ -137,7 +137,7 @@ let recipes = [
     {
         "name": "Russian Salad",
         "imageSrc": "assets/rounded (4).png",
-        "time": "40 min",
+        "time": "40",
         "type": "non-veg",
         "isLiked": false,
         "rating": 4.3
@@ -145,7 +145,7 @@ let recipes = [
     {
         "name": "Russian Salad",
         "imageSrc": "assets/rounded (4).png",
-        "time": "40 min",
+        "time": "40",
         "type": "veg",
         "isLiked": false,
         "rating": 4.9
